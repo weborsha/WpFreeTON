@@ -34,7 +34,8 @@ contract WpDebot is Debot {
     function handleMenu1() public {
         string[] headers;
         string url = "https://domain.com/wp-json/debact/" + format("{}", m_wallet); //Change domain.com
-        headers.push("Content-Type: application/x-www-form-urlencoded");
+        headers.push("Content-Type: application/json");
+		headers.push("Authorization: Basic YOUR TOKEN"); //Change YOUR TOKEN into username:password in base64
         Network.get(tvm.functionId(setResponse), url, headers);
     }
 
